@@ -21,14 +21,15 @@ class ArticlesController < ApplicationController
             redirect_to article_path(@article)
         
         else
-            render 'new'
+            flash[:alert] = "Erreur lors de la création de l'article"
+            render :new
         end
 
     end
    
     def update
         if @article.update(article_params)
-            flash[:notice] = "Article bel et bien modifié!"
+            flash.now[:notice] = "Article bel et bien modifié!"
             redirect_to article_path(@article)
 
         else
