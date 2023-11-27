@@ -20,6 +20,7 @@ $navbar-expand-bg: #5882FA;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
     padding: 20px;
     max-width: 500px;
 }
@@ -32,10 +33,14 @@ hr {
 
 .jumbotron h1 {
     color: #FE2EC8;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .jumbotron p {
     color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 footer {
@@ -62,4 +67,9 @@ footer ul li {
     color: white;
 }
 
+.jumbotron .btn 
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 @import "bootstrap";
