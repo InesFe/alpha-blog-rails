@@ -1,9 +1,9 @@
-$navbar-expand-bg: #0B3B2E;
+$navbar-expand-bg: #5882FA;
 
 #logo {
     float: left;
     font-size: 1.7em;
-    color: black;
+    color: white;
     text-transform: uppercase;
     letter-spacing: -1px;
     font-style: italic;
@@ -14,7 +14,9 @@ $navbar-expand-bg: #0B3B2E;
 }
 
 .jumbotron {
-    background-image: asset-url('ciel.jpg');
+    background-image: asset-url('nebula.jpg');
+    background-size: cover;
+    height: 550px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -24,8 +26,40 @@ $navbar-expand-bg: #0B3B2E;
 
 hr {
     height: 3px;
-    background-color: black;
-    border-color: black;
+    background-color: #FE2EC8;
+    border-color: #FE2EC8;
     }
+
+.jumbotron h1 {
+    color: #FE2EC8;
+}
+
+.jumbotron p {
+    color: white;
+}
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid grey;
+}
+
+footer small {
+    float: left;
+}
+
+footer ul {
+    float: right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 15px;
+}
+
+.nav-item .nav-link {
+    color: white;
+}
 
 @import "bootstrap";
