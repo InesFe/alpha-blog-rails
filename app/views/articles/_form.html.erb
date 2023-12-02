@@ -8,19 +8,38 @@
         </ul>
     <% end %>
 
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-    </p>
 
-    <p>
-        <%= f.label :description %><br/>
-        <%= f.text_area :description %>
-    </p>
+<div class="mb-3">
+    <div class="form-label">
+        <%= f.label :title %>
+    </div>
 
-    <p>
-        <%= f.submit "Enregistrer", class: "btn btn-primary" %>
-    </p>
+    <div class="form-label">
+        <div class="col-sm-6">
+        <%= f.text_field :title, class: "form-control" %>
+        </div>
+    </div>
+</div>
+        
+<div class="mb-3">
+    <div class="form-label">
+      <%= f.label :description %>  
+    </div>
+
+    <div class="form-label">
+        <div class="col-sm-6">
+       <%= f.text_area :description, class: "form-control", rows: 10 %> 
+       </div>
+    </div>
+</div>
+   
+<div class="mb-3 form-check">
+     <%= f.submit "Enregistrer", class: "btn btn-primary" %>
+</div>
+
 <% end %>
+</div>
 
+<div>
 <%= link_to "Retour à la liste", articles_path %>
+</div>
