@@ -1,13 +1,25 @@
 <%= form_with(model: @article, data: {turbo: false}) do |f| %>
     <% if @article.errors.any? %>
-        <h2>Erreur à cause des rasions suivantes:</h2>
-        <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    <% end %>
-
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="alert alert-danger">
+                    <div class="alert-heading">
+                        <h2 class="alert-title">
+                            <%= pluralize(@article.errors.count, "errors")%>, that's unfortunate! 
+                        </h2>
+                        
+                        <div class="alert-body">
+                            <ul>
+                                <% @article.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <div>
+        </div>
+   <% end %>
 
 <div class="mb-3">
     <div class="form-label">
@@ -25,6 +37,7 @@
     <div class="form-label">
       <%= f.label :description %>  
     </div>
+</div>
 
 <div class="form-label">
     <div class="col-sm-6">
@@ -33,12 +46,12 @@
 </div>
 
    
-<div class="mb-3 form-check">
+<div class="mb-3">
      <%= f.submit "Enregistrer", class: "btn btn-primary" %>
 </div>
 
 <% end %>
-</div>
+
 
 <div>
 <%= link_to "Retour à la liste", articles_path %>
