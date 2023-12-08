@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
         if @article.save
-            flash[:sucess] = "Article bel et bien crée!"
+            flash[:success] = "Article bel et bien crée!"
             redirect_to article_path(@article)
         
         else
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
    
     def update
         if @article.update(article_params)
-            flash.now[:success] = "Article bel et bien modifié!"
+            flash[:success] = "Article bel et bien modifié!"
             redirect_to article_path(@article)
 
         else
