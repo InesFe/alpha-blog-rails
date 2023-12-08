@@ -1,11 +1,11 @@
 <%= form_with(model: @article, data: {turbo: false}) do |f| %>
     <% if @article.errors.any? %>
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="alert alert-danger">
+            <div class="col-xs-8">
+                <div class="alert alert-danger col-sm-6">
                     <div class="alert-heading">
                         <h2 class="alert-title">
-                            <%= pluralize(@article.errors.count, "errors")%>, that's unfortunate! 
+                            <%= pluralize(@article.errors.count, "error")%>, that's unfortunate! 
                         </h2>
                         
                         <div class="alert-body">
@@ -21,38 +21,35 @@
         </div>
    <% end %>
 
-<div class="mb-3">
-    <div class="form-label">
-        <%= f.label :title %>
+    <div class="mb-3">
+        <div class="form-label">
+            <%= f.label :title %>
+        </div>
+
+        <div class="form-label">
+            <div class="col-sm-6">
+            <%= f.text_field :title, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+            
+    <div class="mb-3">
+        <div class="form-label">
+        <%= f.label :description %>  
+        </div>
     </div>
 
     <div class="form-label">
         <div class="col-sm-6">
-        <%= f.text_field :title, class: "form-control" %>
+        <%= f.text_area :description, class: "form-control", rows: 10 %> 
         </div>
     </div>
-</div>
-        
-<div class="mb-3">
-    <div class="form-label">
-      <%= f.label :description %>  
+    
+    <div class="mb-3">
+        <%= f.submit "Enregistrer", class: "btn btn-primary" %>
     </div>
-</div>
 
-<div class="form-label">
-    <div class="col-sm-6">
-    <%= f.text_area :description, class: "form-control", rows: 10 %> 
+    <div>
+    <%= link_to "Retour à la liste", articles_path %>
     </div>
-</div>
-
-   
-<div class="mb-3">
-     <%= f.submit "Enregistrer", class: "btn btn-primary" %>
-</div>
-
-<% end %>
-
-
-<div>
-<%= link_to "Retour à la liste", articles_path %>
-</div>
+<%end%>
