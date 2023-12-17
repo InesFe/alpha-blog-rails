@@ -1,25 +1,27 @@
-<h1>Listing de tous les articles</h1>
+<div class="container">
+    <h1>Listing de tous les articles</h1>
 
-<p>
-<%= link_to "Créer nouvel article", new_article_path %>
-</p>
+    <p>
+    <%= link_to "Créer nouvel article", new_article_path %>
+    </p>
 
-<table>
-    <tr>
-        <th>Titre</th>
-        <th>Description</th>
-        </tr>
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">Titre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+            <th scope="col"></th>
+        </thead>
 
-    <% @articles.each do |article| %>
-        <tr>
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
-            <td><%= link_to "Editer", edit_article_path(article) %></td>
-            <td><%= link_to "Afficher", article_path(article) %></td>
-            <td><%= link_to "Supprimer", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer cet article ?" } %></td>
+        <% @articles.each do |article| %>
+            <tr>
+                <td><%= link_to article.title, article_path(article) %></td>
+                <td><%= truncate(article.description, length: 100) %></td>
+                <td><%= link_to "Editer", edit_article_path(article), class: "btn btn-primary btn-sm" %></td>
+                <td><%= link_to "Supprimer", article_path(article), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer cet article ?" } %></td>
 
-        </tr>
+            </tr>
 
-    <% end %>
-
-</table>
+        <% end %>
+    </table>
+</div>
