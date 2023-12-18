@@ -9,7 +9,7 @@
         <div class="card-body">
             <%= link_to "Retour à la liste", articles_path, class: "btn btn-primary btn-sm"%> |
             <%= link_to "Editer l'article", edit_article_path(@article), class: "btn btn-primary btn-sm"%> | 
-            <%= link_to "Supprimer cet article", article_path(@article), method: :delete, class: "btn btn-danger btn-sm"%>
+            <%= link_to "Supprimer", article_path(@article), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer cet article ?" } %>
         </div>
     </div>
 </div>
