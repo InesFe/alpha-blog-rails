@@ -1,0 +1,21 @@
+
+<div class="container">
+    <div class="center">
+        <h1>Liste des utilisateurs</h1>
+    </div>
+    
+
+<table class="table table-striped">
+    <thead>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </thead>
+       
+    <% @users.each do |user| %>
+         <tr>
+            <td><%= gravatar_for user, size: 25 %><%= user.username %></td>
+            <td>has published <%=pluralize(user.articles.count, "article") if user.articles.any?%></td>
+        </tr>
+    <% end %>
+</table>
+</div>
