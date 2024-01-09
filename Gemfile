@@ -7,10 +7,11 @@ ruby "3.1.4"
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'sassc-rails', '>= 2.1.0'
 
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 gem 'bcrypt', '~> 3.1.7'
+gem 'will_paginate', '~> 4.0'
+gem 'will_paginate-bootstrap-style'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

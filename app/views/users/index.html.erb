@@ -3,13 +3,14 @@
     <div class="center">
         <h1>Liste des utilisateurs</h1>
     </div>
-    
 
 <table class="table table-striped">
     <thead>
         <th scope="col"></th>
         <th scope="col"></th>
     </thead>
+
+    <div class="pagination justify-content-center"><%= will_paginate @users %></div>
        
     <% @users.each do |user| %>
          <tr>
@@ -19,4 +20,5 @@
         </tr>
     <% end %>
 </table>
+    <div class="pagination justify-content-center"><%= will_paginate @users %></div>
 </div>

@@ -1,9 +1,10 @@
 <div class="container">
     <h1>Listing de tous les articles</h1>
-
-    <p>
-    <%= link_to "Créer nouvel article", new_article_path %>
-    </p>
+    <p><%= link_to "Créer nouvel article", new_article_path %></p>
+  
+<div class="pagination justify-content-center"><%= will_paginate @articles %></div>
     
     <%= render 'articles/articles', obj: @articles %>
+
+<div class="pagination justify-content-center"><%= will_paginate @articles %></div>
 </div>
