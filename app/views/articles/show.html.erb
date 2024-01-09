@@ -4,9 +4,13 @@
     <div class="card" style="width: 60rem;">
         <div class="card-header">
             <p><%= @article.description %></p>
+            <% if @article.user%>
+                <small>Article écrit par <%=link_to @article.user.username, user_path(@article.user)%></small> 
+            <%end%>
         </div>
-            
+        
         <div class="card-body">
+            
             <%= link_to "Retour à la liste", articles_path, class: "btn btn-primary btn-sm"%> |
             <%= link_to "Editer l'article", edit_article_path(@article), class: "btn btn-primary btn-sm"%> | 
             <%= link_to "Supprimer", article_path(@article), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer cet article ?" } %>
