@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <%= form_with(session:, data: {turbo: false}, url: login_path) do |f| %>
+    <%= form_with scope: :session, data: {turbo: false}, url: login_path do |f| %>
     
     <div class="mb-3">
         <div class="form-label">

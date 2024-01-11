@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
     end
 
     def create 
-        #if params[:session].present? && params[:session][:email].present? && params[:session][:password].present?
             user = User.find_by(email: params[:session][:email].downcase)
         
             if user && user.authenticate(params[:session][:password])
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
                 flash.now[:danger] = "Identifiants incorrects"
                 render 'new'
             end
-        #end
     end
 
     def destroy
