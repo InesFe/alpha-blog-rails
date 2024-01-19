@@ -4,6 +4,7 @@
         <th scope="col">Description</th>
         <th scope="col">Informations</th>
         <th scope="col">Actions</th>
+        
         <th scope="col"></th>
     </thead>
 
@@ -13,10 +14,13 @@
             <td><%= truncate(article.description, length: 80) %></td>
             <td><small>Created by <strong><%= article.user.username if article.user %></strong> <%=time_ago_in_words(article.created_at)%> ago, 
                             updated <%=time_ago_in_words(article.updated_at)%> ago</small></td>
-            <td><%= link_to "Editer", edit_article_path(article), class: "btn btn-primary btn-sm" %></td>
-            <td><%= link_to "Supprimer", article_path(article), class: "btn btn-danger btn-sm", 
-                    data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer cet article ?" } %></td>
-
+            
+            <% if logged_in? and current_user == article.user %>
+                
+                <td><%= link_to "Editer", edit_article_path(article), class: "btn btn-primary btn-sm" %></td>
+                <td><%= link_to "Supprimer", article_path(article), class: "btn btn-danger btn-sm", 
+                        data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer cet article ?" } %></td>
+            <% end %>
         </tr>
 
     <% end %>
