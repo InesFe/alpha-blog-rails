@@ -11,6 +11,7 @@
         <li class="nav-item"><%= link_to "A propos", about_path, class: "nav-link"%></li>
         </li>
        
+      <% if logged_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Actions
@@ -24,12 +25,18 @@
         </li>
       </ul>
       
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="tut" aria-label="Search">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="tut" aria-label="Search">
         </form>
         
-      <%= form_tag(logout_path, method: :delete, data: {turbo: false}) do %>
-        <button class="btn btn-outline-light" type="submit">Déconnexion</button>
+        <%= form_tag(logout_path, method: :delete, data: {turbo: false}) do %>
+          <button class="btn btn-outline-light" type="submit">Déconnexion</button>
+        <% end %>
+      
+      <% else %>
+        <li class="nav-item"><%= link_to "Se connecter", login_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "S'inscrire", signup_path, class: "nav-link" %></li>
+      
       <% end %>
     </div>
   </div>
