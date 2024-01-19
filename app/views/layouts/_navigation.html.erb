@@ -25,9 +25,12 @@
       </ul>
       
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
+        <input class="form-control me-2" type="search" placeholder="tut" aria-label="Search">
+        </form>
+        
+      <%= form_tag(logout_path, method: :delete, data: {turbo: false}) do %>
+        <button class="btn btn-outline-light" type="submit">Déconnexion</button>
+      <% end %>
     </div>
   </div>
 </nav>
