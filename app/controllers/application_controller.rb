@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
     def require_user
         unless logged_in? 
-            flash[:danger] = "Vous devez être connectés pour cette action"
+            flash[:danger] = "Vous devez être connecté pour cette action"
             redirect_to root_path
         end
     end
