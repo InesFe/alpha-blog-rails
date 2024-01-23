@@ -13,7 +13,7 @@
             
             <%= link_to "Retour à la liste", articles_path, class: "btn btn-primary btn-sm"%>
             
-            <% if logged_in? and current_user == @article.user %>
+            <% if logged_in? and (current_user == @article.user or current_user.admin?)  %>
                 <%= link_to "Editer l'article", edit_article_path(@article), class: "btn btn-primary btn-sm"%>
                 <%= link_to "Supprimer", article_path(@article), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer cet article ?" } %>
             <% end %>

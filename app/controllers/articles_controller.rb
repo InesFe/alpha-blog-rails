@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @article.user 
+        if current_user != @article.user and current_user.admin? == false
             flash[:danger] = "You have no power here! Not your article."
             redirect_to root_path
         end
