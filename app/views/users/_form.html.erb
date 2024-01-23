@@ -1,4 +1,5 @@
 <%= form_with(model: @user, data: {turbo: false}) do |f| %>
+    
     <% if @user.errors.any? %>
         <div class="row">
             <div class="col-xs-8">
@@ -17,54 +18,54 @@
                         </div>
                     </div>
                 </div>
-            <div>
+            </div>
         </div>
    <% end %>
 
     <div class="container">
     
-    <div class="mb-3">
-        <div class="form-label">
-            <%= f.label :username %>
+        <div class="mb-3">
+            <div class="form-label">
+                <%= f.label :username %>
+            </div>
+
+            <div class="form-label">
+                <div class="col-sm-6">
+                <%= f.text_field :username, class: "form-control", placeholder: "Entrez votre username" %>
+                </div>
+            </div>
+        </div>
+                
+        <div class="mb-3">
+            <div class="form-label">
+            <%= f.label :email %>  
+            </div>
         </div>
 
         <div class="form-label">
             <div class="col-sm-6">
-            <%= f.text_field :username, class: "form-control", placeholder: "Entrez votre username" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "Entrez votre email" %> 
             </div>
         </div>
-    </div>
-            
-    <div class="mb-3">
+
+        <div class="mb-3">
+            <div class="form-label">
+            <%= f.label :password %>  
+            </div>
+        </div>
+        
         <div class="form-label">
-        <%= f.label :email %>  
+            <div class="col-sm-6">
+            <%= f.password_field :password, class: "form-control", placeholder: "Entrez votre mot de passe" %> 
+            </div>
         </div>
-    </div>
 
-    <div class="form-label">
-        <div class="col-sm-6">
-        <%= f.text_field :email, class: "form-control", placeholder: "Entrez votre email" %> 
+        <div class="mb-3">
+            <%= f.submit(@user.new_record? ? "Sign up" : "Mettre à jour", class: "btn btn-primary") %>
         </div>
-    </div>
 
-    <div class="mb-3">
-        <div class="form-label">
-        <%= f.label :password %>  
+        <div>
+        <%= link_to "Retour à la liste des articles", articles_path %>
         </div>
-    </div>
-     
-    <div class="form-label">
-        <div class="col-sm-6">
-        <%= f.password_field :password, class: "form-control", placeholder: "Entrez votre mot de passe" %> 
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <%= f.submit(@user.new_record? ? "Sign up" : "Mettre à jour", class: "btn btn-primary") %>
-    </div>
-
-    <div>
-    <%= link_to "Retour à la liste des articles", articles_path %>
-    </div>
-<%end%>
-</div class ="container">
+    <% end %>
+</div>
